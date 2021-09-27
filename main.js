@@ -1,9 +1,9 @@
 song = "";
-const song1 = document.getElementById("Dropdown");
-    const checkText = song1.options[song1.selectedIndex].text;
+const element = document.getElementById("Dropdown");
+    const checkText = element.options[element.selectedIndex].text;
     console.log(checkText);
 function preload(){
-    song = loadSound(checkText+".mp3");
+    song = loadSound("Harry Potter.mp3");
 }
 
 score_rightWrist = "";
@@ -12,6 +12,17 @@ leftWristX = "";
 leftWristY = "";
 rightWristX = "";
 rightWristY = "";
+
+element.addEventListener("change", (e) => {
+  const value = e.target.value;
+  const text = element.options[element.selectedIndex].text;
+ 
+  if (value) {
+    song = loadSound({value});
+  } else {
+    document.getElementById("pick").textContent = "";
+  }
+});
 
 function setup(){
     canvas = createCanvas(600, 500);
