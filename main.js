@@ -13,16 +13,9 @@ leftWristY = "";
 rightWristX = "";
 rightWristY = "";
 
-element.addEventListener("change", (e) => {
-  const value = e.target.value;
-  const text = element.options[element.selectedIndex].text;
- 
-  if (value) {
-    song = loadSound({value});
-  } else {
-    document.getElementById("pick").textContent = "";
-  }
-});
+function copy(){
+ song = loadSound(document.getElementById("Dropdown").value + ".mp3")
+}
 
 function setup(){
     canvas = createCanvas(600, 500);
